@@ -1,20 +1,22 @@
 <template>
   <div class="hello">
-    <md-card v-for="(picture, key) in pictures" v-bind:key="picture.id">
+    <md-card v-for="(picture, key) in firebase.cats" v-bind:key="picture.id">
       <md-card-media>
-        <img v-bind:src="picture.url" alt="People">
+        <img v-bind:src="picture.url" alt="A cat">
       </md-card-media>
     </md-card>
   </div>
 </template>
 
 <script>
-import data from '../data'
+import { db } from '../database'
 export default {
   name: 'hello',
   data () {
     return {
-      pictures: data.pictures
+      firebase: {
+        cats: db.ref('pictures')
+      }
     }
   }
 }
