@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <md-card v-for="(picture, key) in firebase.cats" v-bind:key="picture.id">
+    <md-card v-for="(picture, key) in cats" v-bind:key="picture.id">
       <md-card-media>
         <img v-bind:src="picture.url" alt="A cat">
       </md-card-media>
@@ -10,13 +10,16 @@
 
 <script>
 import { db } from '../database'
+
 export default {
   name: 'hello',
   data () {
     return {
-      firebase: {
-        cats: db.ref('pictures')
-      }
+    }
+  },
+  firebase: {
+    cats: {
+      source: db.ref('pictures')
     }
   }
 }
