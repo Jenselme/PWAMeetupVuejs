@@ -1,16 +1,20 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
-    Bonjour
+    <md-card v-for="(picture, key) in pictures" v-bind:key="picture.id">
+      <md-card-media>
+        <img v-bind:src="picture.url" alt="People">
+      </md-card-media>
+    </md-card>
   </div>
 </template>
 
 <script>
+import data from '../data'
 export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js PWA'
+      pictures: data.pictures
     }
   }
 }
