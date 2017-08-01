@@ -4,15 +4,19 @@
       <span>Vue.js PWA</span>
     </header>
     <main>
-      <img src="./assets/logo.png" alt="Vue.js PWA">
-      <router-view></router-view>
+    <hello></hello>
+
     </main>
   </div>
 </template>
 
 <script>
+import Hello from './components/Hello'
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    Hello
+  }
 }
 </script>
 
