@@ -1,5 +1,6 @@
 <template>
   <div class="hello">
+    <img src="https://25.media.tumblr.com/tumblr_m40h4ksiUa1qbyxr0o1_400.gif"/>
     <md-card v-for="(picture, key) in cats" v-bind:key="picture.id">
       <md-card-media>
         <img v-bind:src="picture.url" alt="A cat">
