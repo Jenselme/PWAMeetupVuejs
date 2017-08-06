@@ -33,6 +33,22 @@ export default {
       if (navigator.onLine) {
         this.$firebaseRefs.cats.once('value', snapshot => {
           localStorage.setItem('cats', JSON.stringify(snapshot.val()))
+          this.registerPushNotifications()
+        })
+      }
+    },
+    registerPushNotifications () {
+      if ('Notification' in window) {
+        this.$firebaseRefs.cats.on('child_added', function (snap) {
+          Notification.requestPermission().then(function (result) {
+            if (result === 'granted') {
+              const notif = new Notification('New cat', {
+                body: snap.val().title,
+                tag: null
+              })
+              setTimeout(() => notif.close(), 5000)
+            }
+          })
         })
       }
     }
