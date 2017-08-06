@@ -1,6 +1,8 @@
 <template>
   <div class="hello">
-    <md-button class="md-raised md-primary add-button">Add</md-button>
+    <md-button class="md-raised md-primary add-button">
+      <router-link class="md-button" to="add">Add</router-link>
+    </md-button>
 
     <md-card v-for="(picture, key) in getCats()" v-bind:key="picture.id">
       <md-card-media>
