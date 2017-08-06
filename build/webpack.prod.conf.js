@@ -108,7 +108,7 @@ var webpackConfig = merge(baseWebpackConfig, {
       stripPrefix: 'dist/',
       runtimeCaching: [
       {
-        urlPattern: /^https:\/\/[0-9]*\.media\.tumblr\.com\//,
+        urlPattern: /\.(png|gif|jpg|jpeg)$/,
         handler: 'cacheFirst'
       }]
     })
