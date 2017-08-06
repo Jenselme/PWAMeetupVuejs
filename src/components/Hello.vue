@@ -1,5 +1,7 @@
 <template>
   <div class="hello">
+    <md-button class="md-raised md-primary add-button">Add</md-button>
+
     <md-card v-for="(picture, key) in getCats()" v-bind:key="picture.id">
       <md-card-media>
         <img v-bind:src="picture.url" alt="A cat">
@@ -62,5 +64,11 @@ li {
 
 a {
   color: #35495E;
+}
+
+.add-button {
+  position: fixed;
+  top: 0;
+  right: 0;
 }
 </style>
